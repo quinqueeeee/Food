@@ -201,6 +201,17 @@ function cards() {
 				new MenuCard(img, altimg, title, descr, price, '.menu .container').render()
 			})
 		})
+
+
+
+	// //60-----------------------------------
+	// axios.get('http://localhost:3000/menu')
+	// 	.then(data => {
+	// 		data.data.forEach(({ img, altimg, title, descr, price }) => {
+	// 			new MenuCard(img, altimg, title, descr, price, '.menu .container').render()
+	// 		})
+	// 	})
+	// //59 end---------------------------------
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cards);
@@ -420,7 +431,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function slider({ container, slide, nextArr, prevArr, totalCounter, currentCounter, wrapper, field }) {
+function slider({ container, slide, nextArr, prevArr, totalCounter, currentCounter, wrapper, field}) {
 	// //вариант 2
 	const slides = document.querySelectorAll(slide),
 		sliderCont = document.querySelector(container),
@@ -615,183 +626,38 @@ transition: opacity .6s ease;
 
 
 
+//вариант 1
+
+// let slideIndex = 1
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//2 вар
-// function slider({
-// 	slidesSelector,
-// 	containerSelector,
-// 	prevArrow,
-// 	nextArrow,
-// 	totalId,
-// 	currentId,
-// 	sliderWrapperSelector,
-// 	fieldSelector,
-// }) {
-// 	const slides = document.querySelectorAll(slidesSelector),
-// 		slider = document.querySelector(containerSelector),
-// 		prev = document.querySelector(prevArrow),
-// 		next = document.querySelector(nextArrow),
-// 		total = document.querySelector(totalId),
-// 		current = document.querySelector(currentId),
-// 		sliderWrapper = document.querySelector(sliderWrapperSelector),
-// 		width = window.getComputedStyle(sliderWrapper).width,
-// 		slidesField = document.querySelector(fieldSelector),
-// 		dots = []
-
-// 	let offset = 0
-// 	let slideIndex = 1
-
-// 	function addZero(num) {
-// 		if (num >= 0 && num < 10) {
-// 			return `0${num}`
-// 		} else {
-// 			return num
-// 		}
+// showSlides(slideIndex)
+// function showSlides(n) {
+// 	if (n > slides.length) {
+// 		slideIndex = 1
 // 	}
 
-// 	slidesField.style.width = 100 * slides.length + "%"
-// 	slidesField.style.display = "flex"
-// 	slidesField.style.transition = "0.5s all"
-
-// 	sliderWrapper.style.overflow = "hidden"
-
-// 	slides.forEach(slide => (slide.style.width = width))
-
-// 	slider.style.position = "relative"
-// 	const indicators = document.createElement("ol")
-// 	indicators.style.cssText = `
-// 	position: absolute;
-// right: 0;
-// bottom: 0;
-// left: 0;
-// z-index: 15;
-// display: flex;
-// justify-content: center;
-// margin-right: 15%;
-// margin-left: 15%;
-// list-style: none;
-// 	`
-// 	slider.append(indicators)
-
-// 	for (let i = 0; i < slides.length; i++) {
-// 		const dot = document.createElement("li")
-// 		dot.setAttribute("data-type-to", i + 1)
-// 		dot.style.cssText = `
-// 		box-sizing: content-box;
-// flex: 0 1 auto;
-// width: 30px;
-// height: 6px;
-// margin-right: 3px;
-// margin-left: 3px;
-// cursor: pointer;
-// background-color: #fff;
-// background-clip: padding-box;
-// border-top: 10px solid transparent;
-// border-bottom: 10px solid transparent;
-// opacity: .5;
-// transition: opacity .6s ease;
-// 		`
-// 		if (i === 0) {
-// 			dot.style.opacity = 1
-// 		}
-// 		dots.push(dot)
-// 		indicators.append(dot)
+// 	if (n < 1) {
+// 		slideIndex = slides.length
 // 	}
 
-// 	function dotOpacity(i) {
-// 		dots.forEach(dot => (dot.style.opacity = ".5"))
-// 		dots[i - 1].style.opacity = "1"
-// 	}
+// 	slides.forEach(item => item.style.display = 'none')
 
-// 	function removeLetter(str) {
-// 		return +str.replace(/\D/g, "")
-// 	}
-
-// 	dots.forEach(dot => {
-// 		dot.addEventListener("click", e => {
-// 			const slideTo = e.target.getAttribute("data-type-to")
-// 			offset = removeLetter(width) * (slideTo - 1)
-// 			slidesField.style.transform = `translateX(-${offset}px)`
-// 			current.textContent = addZero(slideTo)
-
-// 			dotOpacity(slideTo)
-// 		})
-// 	})
-
-// 	total.textContent = addZero(slides.length)
-// 	current.textContent = addZero(slideIndex)
-
-// 	next.addEventListener("click", () => {
-// 		if (offset == removeLetter(width) * (slides.length - 1)) {
-// 			offset = 0
-// 		} else {
-// 			offset += removeLetter(width)
-// 		}
-
-// 		slidesField.style.transform = `translateX(-${offset}px)`
-// 		slideIndex == slides.length ? (slideIndex = 1) : slideIndex++
-// 		current.textContent = addZero(slideIndex)
-
-// 		dotOpacity(slideIndex)
-// 	})
-
-// 	prev.addEventListener("click", () => {
-// 		if (offset == 0) {
-// 			offset = removeLetter(width) * (slides.length - 1)
-// 		} else {
-// 			offset -= removeLetter(width)
-// 		}
-
-// 		slidesField.style.transform = `translateX(-${offset}px)`
-// 		slideIndex == 1 ? (slideIndex = slides.length) : slideIndex--
-// 		current.textContent = addZero(slideIndex)
-
-// 		dotOpacity(slideIndex)
-// 	})
+// 	slides[slideIndex - 1].style.display = 'block'
 // }
 
-// export default slider
 
+// function plusSlides(n) {
+// 	showSlides(slideIndex += n) // если будет + , тогда добавим 1, если - , то отнимаем
+// }
 
+// prev.addEventListener('click', () => {
+// 	plusSlides(-1)
+// })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// next.addEventListener('click', () => {
+// 	plusSlides(1)
+// })
 
 
 
@@ -861,7 +727,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-// 1 вариант (из видео)
 function timer(id, deadline) {
 	function getTimeRemaining(endtime) {
 		const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -916,70 +781,6 @@ function timer(id, deadline) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);
-
-
-
-
-
-// вариант 2
-// function timer(timerSelector, deadline) {
-// 	function convertTime(endtime) {
-// 		let days, hours, minutes, seconds;
-// 		const t = Date.parse(endtime) - Date.parse(new Date());
-// 		if (t <= 0) {
-// 			days = 0;
-// 			hours = 0;
-// 			minutes = 0;
-// 			seconds = 0;
-// 		} else {
-// 			(days = Math.floor(t / (24 * 60 * 60 * 1000))),
-// 				(hours = Math.floor((t / (60 * 60 * 1000)) % 24)),
-// 				(minutes = Math.floor((t / (60 * 1000)) % 60)),
-// 				(seconds = Math.floor((t / 1000) % 60));
-// 		}
-
-// 		return {
-// 			total: t,
-// 			days: days,
-// 			hours: hours,
-// 			minutes: minutes,
-// 			seconds: seconds,
-// 		};
-// 	}
-
-// 	function addZero(num) {
-// 		if (num >= 0 && num < 10) {
-// 			return `0${num}`;
-// 		} else {
-// 			return num;
-// 		}
-// 	}
-
-// 	function updateClock(selector, endtime) {
-// 		const timerParent = document.querySelector(selector),
-// 			days = timerParent.querySelector("#days"),
-// 			hours = timerParent.querySelector("#hours"),
-// 			minutes = timerParent.querySelector("#minutes"),
-// 			seconds = timerParent.querySelector("#seconds"),
-// 			interval = setInterval(changeClock, 1000);
-
-// 		changeClock();
-// 		function changeClock() {
-// 			const data = convertTime(endtime);
-// 			days.innerHTML = addZero(data["days"]);
-// 			hours.innerHTML = addZero(data["hours"]);
-// 			minutes.innerHTML = addZero(data["minutes"]);
-// 			seconds.innerHTML = addZero(data["seconds"]);
-
-// 			if (data["total"] <= 0) {
-// 				clearInterval(interval);
-// 			}
-// 		}
-// 	}
-// 	updateClock(timerSelector, deadline);
-// }
-
-// export default timer;
 
 /***/ }),
 
@@ -1106,7 +907,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	;(0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active')
 	;(0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal]', '.modal', modalTimerId)
-	;(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])('.timer', '2024-07-01')
+	;(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])('.timer', '2020-06-11')
 	;(0,_modules_cards__WEBPACK_IMPORTED_MODULE_3__["default"])()
 	;(0,_modules_calc__WEBPACK_IMPORTED_MODULE_4__["default"])()
 	;(0,_modules_forms__WEBPACK_IMPORTED_MODULE_5__["default"])('form', modalTimerId)
